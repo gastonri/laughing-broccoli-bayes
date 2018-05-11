@@ -2,4 +2,8 @@ page-calculo {
   ion-label {
     font-weight: 400;
   }
+  table, th, td {
+    border: #222222 1px solid;
+    padding: 3px;
+  }
 }

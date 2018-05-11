@@ -14,22 +14,18 @@
 
 
 <ion-content padding>
-  <form [formGroup]="calculo">
+  <form [formGroup]="calculoForm">
     <ion-item>
       <ion-label floating>C11</ion-label>
-      <ion-input formControlName="c11" ></ion-input>
+      <ion-input formControlName="c11"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>C12</ion-label>
-      <ion-input formControlName="c12" ></ion-input>
+      <ion-input formControlName="c12"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>P(Y1)</ion-label>
-      <ion-input formControlName="py1" ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>P(Y2)</ion-label>
-      <ion-input formControlName="py2" ></ion-input>
+      <ion-input formControlName="py1"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>estudioMercado</ion-label>
@@ -41,8 +37,34 @@
     </ion-item>
     <ion-item>
       <ion-label floating>casoFallido</ion-label>
-      <ion-input formControlName="casoFallido" ></ion-input>
+      <ion-input formControlName="casoFallido"></ion-input>
     </ion-item>
-
+    <div padding>
+      <button ion-button block type="button" (click)="calcular()">Calcular</button>
+    </div>
+    <div *ngIf="dx1">
+      A)
+      <table>
+        <tbody>
+        <tr>
+          <th>d(x1)</th>
+          <th>Y1</th>
+          <th>Y2</th>
+        </tr>
+        </tbody>
+        <thead>
+        <tr>
+          <td>d(X2)</td>
+          <td>C11 = {{c11}}</td>
+          <td>C12 = {{c12}}</td>
+        </tr>
+        <tr>
+          <td>d(Y2)</td>
+          <td>C21 = 0</td>
+          <td>C22 = 0</td>
+        </tr>
+        </thead>
+      </table>
+    </div>
   </form>
 </ion-content>
