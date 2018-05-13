@@ -32,12 +32,12 @@
       <ion-input formControlName="estudioMercado"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>casoExito</ion-label>
-      <ion-input formControlName="casoExito"></ion-input>
+      <ion-label floating>T1</ion-label>
+      <ion-input formControlName="t11"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>casoFallido</ion-label>
-      <ion-input formControlName="casoFallido"></ion-input>
+      <ion-label floating>T2</ion-label>
+      <ion-input formControlName="t22"></ion-input>
     </ion-item>
     <div padding>
       <button ion-button block type="button" (click)="calcular()">Calcular</button>
@@ -45,14 +45,14 @@
     <div *ngIf="dx1">
       A)
       <table>
-        <tbody>
+        <thead>
         <tr>
           <th>d(x1)</th>
           <th>Y1</th>
           <th>Y2</th>
         </tr>
-        </tbody>
-        <thead>
+        </thead>
+        <tbody>
         <tr>
           <td>d(X2)</td>
           <td>C11 = {{c11}}</td>
@@ -63,7 +63,60 @@
           <td>C21 = 0</td>
           <td>C22 = 0</td>
         </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="t21">
+    B1)
+      <table>
+       <thead>
+       <tr>
+         <th colspan="2">Y1</th>
+         <th colspan="2">Y2</th>
+       </tr>
+       </thead>
+        <tbody>
+        <tr>
+          <td>Estudio favorable. Producto exitoso</td>
+          <td>Estudio favorable. Producto fracaso</td>
+          <td>Estudio desfavorable. Producto exitoso</td>
+          <td>Estudio desfavorable. Producto fracaso</td>
+        </tr>
+        <tr>
+          <td>t1 = {{t11}}</td>
+          <td>t2 = {{t12}}</td>
+          <td>t1 = {{t21}}</td>
+          <td>t2 = {{t22}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div></div>
+      <table>
+        <thead>
+        <tr>
+          <th>P(Tk/Yj</th>
+          <th>Y1</th>
+          <th>Y2</th>
+        </tr>
         </thead>
+        <tbody>
+        <tr>
+          <td>t1</td>
+          <td>{{t11}}</td>
+          <td>{{t12}}</td>
+        </tr>
+        <tr>
+          <td>t2</td>
+          <td>{{t21}}</td>
+          <td>{{t22}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>{{t11 + t12}}</td>
+          <td>{{t21 + t22}}</td>
+        </tr>
+        </tbody>
       </table>
     </div>
   </form>

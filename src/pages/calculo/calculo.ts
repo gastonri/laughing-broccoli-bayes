@@ -28,11 +28,17 @@ export class CalculoPage {
   c12 = 0
   py1 = 0
   estudioMercado = 0
-  casoExito = 0
-  casoFallido = 0
 
   dx1 = 0;
   py2 = 0;
+
+  //Variables cuadro B
+  t11 = 0
+  t12 = 0
+  t21 = 0
+  t22 = 0
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalculoPage');
@@ -44,8 +50,8 @@ export class CalculoPage {
       'c12': [''],
       'py1': [''],
       'estudioMercado': [''],
-      'casoExito': [''],
-      'casoFallido': ['']
+      't11': [''],
+      't22': ['']
     })
   }
 
@@ -54,14 +60,19 @@ export class CalculoPage {
     this.c12 = parseFloat(this.calculoForm.value['c12']);
     this.py1 = parseFloat(this.calculoForm.value['py1']);
     this.estudioMercado = parseFloat(this.calculoForm.value['estudioMercado']);
-    this.casoExito = parseFloat(this.calculoForm.value['casoExito']);
-    this.casoFallido = parseFloat(this.calculoForm.value['casoFallido']);
+    this.t11 = parseFloat(this.calculoForm.value['t11']);
+    this.t22 = parseFloat(this.calculoForm.value['t22']);
 
+    //Cuadro A
     this.py2 = (1 - this.py1);
     this.dx1 = 0;
-    console.log(this.py2);
     this.dx1 = (this.c11 * (this.py1) + (this.c12) * this.py2);
-    console.log(this.dx1);
+
+    //Cuadro B
+    this.t12 = 1 - this.t11;
+    this.t21 = 1 - this.t22;
+    this.t12 = parseFloat(Number(this.t12).toFixed(2));
+    this.t21 = parseFloat(Number(this.t21).toFixed(2));
   }
 
 }
