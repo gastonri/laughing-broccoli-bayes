@@ -42,82 +42,152 @@
     <div padding>
       <button ion-button block type="button" (click)="calcular()">Calcular</button>
     </div>
-    <div *ngIf="dx1">
-      A)
-      <table>
-        <thead>
-        <tr>
-          <th>d(x1)</th>
-          <th>Y1</th>
-          <th>Y2</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>d(X2)</td>
-          <td>C11 = {{c11}}</td>
-          <td>C12 = {{c12}}</td>
-        </tr>
-        <tr>
-          <td>d(Y2)</td>
-          <td>C21 = 0</td>
-          <td>C22 = 0</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div *ngIf="t21">
-    B1)
-      <table>
-       <thead>
-       <tr>
-         <th colspan="2">Y1</th>
-         <th colspan="2">Y2</th>
-       </tr>
-       </thead>
-        <tbody>
-        <tr>
-          <td>Estudio favorable. Producto exitoso</td>
-          <td>Estudio favorable. Producto fracaso</td>
-          <td>Estudio desfavorable. Producto exitoso</td>
-          <td>Estudio desfavorable. Producto fracaso</td>
-        </tr>
-        <tr>
-          <td>t1 = {{t11}}</td>
-          <td>t2 = {{t12}}</td>
-          <td>t1 = {{t21}}</td>
-          <td>t2 = {{t22}}</td>
-        </tr>
-        </tbody>
-      </table>
-      <div></div>
-      <table>
-        <thead>
-        <tr>
-          <th>P(Tk/Yj</th>
-          <th>Y1</th>
-          <th>Y2</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>t1</td>
-          <td>{{t11}}</td>
-          <td>{{t12}}</td>
-        </tr>
-        <tr>
-          <td>t2</td>
-          <td>{{t21}}</td>
-          <td>{{t22}}</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>{{t11 + t12}}</td>
-          <td>{{t21 + t22}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
   </form>
+  <div *ngIf="dx1"
+       class="bloque">
+    A)
+    <table>
+      <thead>
+      <tr>
+        <th>d(x1)</th>
+        <th>Y1</th>
+        <th>Y2</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>d(X1)</td>
+        <td>C11 = {{c11}}</td>
+        <td>C12 = {{c12}}</td>
+      </tr>
+      <tr>
+        <td>d(X2)</td>
+        <td>C21 = 0</td>
+        <td>C22 = 0</td>
+      </tr>
+      <tr>
+        <td>P(Yj)</td>
+        <td>{{py1}}</td>
+        <td>{{py2}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <p>El costo sin realizar el estudio es de {{dx1}}</p>
+  </div>
+
+  <div *ngIf="b1t2y1"
+       class="bloque">
+    B1)
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Y1</th>
+        <th colspan="2">Y2</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Estudio favorable. Producto exitoso</td>
+        <td>Estudio favorable. Producto fracaso</td>
+        <td>Estudio desfavorable. Producto exitoso</td>
+        <td>Estudio desfavorable. Producto fracaso</td>
+      </tr>
+      <tr>
+        <td>t1 = {{b1t1y1}}</td>
+        <td>t2 = {{b1t1y2}}</td>
+        <td>t1 = {{b1t2y1}}</td>
+        <td>t2 = {{b1t2y2}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="bloque"></div>
+
+    <table>
+      <thead>
+      <tr>
+        <th>P(Tk/Yj</th>
+        <th>Y1</th>
+        <th>Y2</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>t1</td>
+        <td>{{b1t1y1}}</td>
+        <td>{{b1t1y2}}</td>
+      </tr>
+      <tr>
+        <td>t2</td>
+        <td>{{b1t2y1}}</td>
+        <td>{{b1t2y2}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="b2t1y1"
+       class="bloque">
+    B2)
+    <div></div>
+    <table>
+      <thead>
+      <tr>
+        <th>P(Tk/Yj</th>
+        <th>Y1</th>
+        <th>Y2</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>t1</td>
+        <td>{{b2t1y1}}</td>
+        <td>{{b2t1y2}}</td>
+        <td>{{b2t1}}</td>
+      </tr>
+      <tr>
+        <td>t2</td>
+        <td>{{b2t2y1}}</td>
+        <td>{{b2t2y2}}</td>
+        <td>{{b2t2}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>{{b2y1}}</td>
+        <td>{{b2y2}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div *ngIf="b3t1y1"
+       class="bloque">
+    B3)
+    <table>
+      <thead>
+      <tr>
+        <th>P(Tk/Yj</th>
+        <th>Y1</th>
+        <th>Y2</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>t1</td>
+        <td>{{b3t1y1}}</td>
+        <td>{{b3t1y2}}</td>
+        <td>{{b3t1}}</td>
+      </tr>
+      <tr>
+        <td>t2</td>
+        <td>{{b3t2y1}}</td>
+        <td>{{b3t2y2}}</td>
+        <td>{{b3t2}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </ion-content>
