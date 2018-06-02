@@ -6,23 +6,22 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { CalculoPage } from '../pages/calculo/calculo';
+import { CalculoPageModule } from '../pages/calculo/calculo.module';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    CalculoPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CalculoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    CalculoPage
+    HomePage
   ],
   providers: [
     StatusBar,
