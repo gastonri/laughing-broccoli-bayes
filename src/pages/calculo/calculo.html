@@ -32,11 +32,11 @@
       <ion-input type="tel" formControlName="estudioMercado"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>T1</ion-label>
+      <ion-label floating>Y1/T1 (Est favorable. Prod exitoso)</ion-label>
       <ion-input type="tel" formControlName="t11"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>T2</ion-label>
+      <ion-label floating>Y2/T2 (Est desfavorable. Prod fracaso)</ion-label>
       <ion-input type="tel" formControlName="t22"></ion-input>
     </ion-item>
     <div padding>
@@ -189,5 +189,83 @@
       </tr>
       </tbody>
     </table>
+  </div>
+
+  <div *ngIf="b3t1y1"
+       class="bloque">
+    B4)
+    <div>
+      <label>Formula:</label>
+      d(x1) = [ C11 . P(y1/t1) + C12 . P(y2/t1)] - C
+      <br>
+      <br>
+      TK --> t1 --> d(x1) = [ C11 . P(y1/t1) + C12 . P(y1/t2)] - C
+      <br>
+      d(x1) = [ {{c11}} . {{b3t1y1}} + {{c12}} . {{b3t1y2}}] - {{estudioMercado}}
+      <br>
+      d(x1) = {{t1dx1}}
+      <p>
+        Si se hace el estudio y el resultado es favorable, y se decide producir el producto se obtendrá una ganancia de
+        {{t1dx1}}
+      </p>
+      <br>
+      <br>
+      TK --> t1 --> d(x2) = - C
+      <br>
+      d(x2) = -{{estudioMercado}}
+      <p>
+        Si se hace el estudio y el resultado es favorable, pero se decide <b>NO</b> comercializar el producto habrá una
+        perdida de
+        {{estudioMercado}}
+      </p>
+      <br>
+      <br>
+      TK --> t2 --> d(x1) = [ C11 . P(y2/t1) + C12 . P(y2/t2)] - C
+      <br>
+      d(x1) = [ {{c11}} . {{b3t2y1}} + {{c12}} . {{b3t2y2}}] - {{estudioMercado}}
+      <br>
+      d(x1) = {{t2dx1}}
+      <p>
+        Si se hace el estudio y el resultado es desfavorable y aún asi se decide producir, se obtendrá una perdida de
+        {{t2dx1}}
+      </p>
+      <br>
+      <br>
+      TK --> t2 --> d(x2) = - C
+      <br>
+      d(x2) = -{{estudioMercado}}
+      <br>
+      <p>
+        Si se hace el estudio y el resultado es desfavorable y se decide <b>NO</b> comercializar el producto habrá una
+        perdida de {{estudioMercado}}
+      </p>
+      <br>
+      <div>
+        t1 d(opt)t1 = {{calculard1opt()}}
+      </div>
+      <br>
+      <div>
+        t2 d(opt)t2 = {{calculard2opt()}}
+      </div>
+    </div>
+    <div class="bloque">
+      B5)
+      <br>
+      d(opt) = d(opt)t1 . P(t1) + d(opt)t2 . P(t2)
+    </div>
+    <div class="bloque">
+      B6)
+      <br>
+      {{calculard1opt()}} . {{b2t1}} + {{calculard2opt()}} . {{b2t2}} = {{calcularFinal()}}
+    </div>
+
+    <div>
+      C)
+      <br>
+      d(opt)A priori {{dx1}}
+      d(opt)A posteriori {{calcularFinal()}}
+      <br>
+      {{resultadoFinal()}}
+    </div>
   </div>
 </ion-content>
