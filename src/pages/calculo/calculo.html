@@ -72,6 +72,11 @@
       </tr>
       </tbody>
     </table>
+    <br>
+    <div>
+      Formula:
+      d(x1) = c11.P(Y1) + C12.P(Y2)
+    </div>
     <p>El costo sin realizar el estudio es de {{dx1}}</p>
   </div>
 
@@ -100,6 +105,8 @@
       </tr>
       </tbody>
     </table>
+    <br>
+    P(TK/Yj)
 
     <div class="bloque"></div>
 
@@ -159,6 +166,8 @@
       </tr>
       </tbody>
     </table>
+    P(TK ∩ Yj) = P(TK/Yj) . P(yj)
+
   </div>
 
 
@@ -189,6 +198,8 @@
       </tr>
       </tbody>
     </table>
+    P(Y1/t1) = P(t1 ∩ y1) / P(t1)
+
   </div>
 
   <div *ngIf="b3t1y1"
@@ -241,24 +252,26 @@
       </p>
       <br>
       <div>
-        t1 d(opt)t1 = {{calculard1opt()}}
-      </div>
-      <br>
-      <div>
-        t2 d(opt)t2 = {{calculard2opt()}}
+        B5)
+        <div>
+          t1 d(opt)t1 = {{calculard1opt()}}
+        </div>
+        <br>
+        <div>
+          t2 d(opt)t2 = {{calculard2opt()}}
+        </div>
       </div>
     </div>
     <div class="bloque">
-      B5)
+      <br>
+      B6)
       <br>
       d(opt) = d(opt)t1 . P(t1) + d(opt)t2 . P(t2)
-    </div>
-    <div class="bloque">
-      B6)
       <br>
       {{calculard1opt()}} . {{b2t1}} + {{calculard2opt()}} . {{b2t2}} = {{calcularFinal()}}
     </div>
-
+    <br>
+    <br>
     <div>
       C)
       <br>
